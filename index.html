@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        height: 100vh;
+        width: 100%;
+        background-color: rgb(255, 117, 83);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .box{
+        height: 200px;
+        width: 350px;
+        background-color: black;
+        border-radius: 20px;
+        opacity: 0.9;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: white;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .box button{
+        height: 40px;
+        width: 80px;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .output{
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    #start{
+        background-color: green;
+        color: white;
+
+    }
+    #stop{
+        background-color: red;
+        color: white;
+    }
+    #reset{
+        background-color: blue;
+        color: white;
+    }
+
+    @media (max-width:480px) {
+        .container{
+            height: 100vh;
+            width: 100%;
+        }
+        .box{
+             width:300px ;
+        }
+    }
+</style>
+
+
+
+
+
+<body>
+    
+    <div class="container">
+        <div class="box">
+            <div>
+                <h1>StopWatch</h1>
+
+            </div>
+            <div class="output" id="time" >0</div>
+            <div class="btn">
+            <button id="start" onclick="timer()">Start</button>
+            <button id="stop" onclick="stop()">Stop</button>
+            <button id="reset" onclick="reset()">Reset</button>
+        </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let time = 0
+        let interval;
+
+        let value =document.getElementById('time')
+        //   console.log(value)
+
+        function timer(){
+            
+             interval = setInterval(()=>{
+                time = time + 1
+                value.innerText=time
+                 // console.log(time)
+            },300);
+        }
+
+
+        function stop(){
+           clearInterval(interval)
+        }
+
+
+        function reset(){
+            clearInterval(interval);
+            time =0
+            value.innerText = time
+        }
+    </script>
+</body>
+</html>
